@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { ArticledetailsComponent } from './articledetails/articledetails.compone
     MatListModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
     HttpClientModule,
     AppRoutingModule
   ],

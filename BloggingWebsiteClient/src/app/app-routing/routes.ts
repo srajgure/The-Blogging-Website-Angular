@@ -8,6 +8,6 @@ import { ArticledetailsComponent } from '../articledetails/articledetails.compon
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'articles',     component: ArticlesComponent },
-  { path: 'articledetails', component:ArticledetailsComponent},
+  { path: 'articledetails/:id', component:ArticledetailsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

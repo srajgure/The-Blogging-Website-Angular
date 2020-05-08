@@ -4,7 +4,7 @@
      fxLayoutGap="10px">
 
   <mat-list fxFlex>
-    <mat-list-item *ngFor="let article of articles" [routerLink]="['/articledetails']">
+    <mat-list-item *ngFor="let article of articles" [routerLink]="['/articledetails', article._id]">
       <h1 matLine> {{article.title  | uppercase}} </h1>
     </mat-list-item>
   </mat-list>
