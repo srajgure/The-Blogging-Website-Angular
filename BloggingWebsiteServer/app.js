@@ -3,6 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session= require('express-session');
+var FileStore = require('session-file-store')(session);
+var passport = require('passport');
+var authenticate = require('./authenticate');
+var config = require('./config');
+const url= config.mongoUrl;
+
 
 const mongoose = require('mongoose');
 
@@ -13,8 +20,6 @@ var articlesRouter =require('./routes/articleRouter');
 
 
 const Articles = require('./models/articles');
-
-const url = 'mongodb://localhost:27017/BloggingWebsiteDB';
 const connect = mongoose.connect(url);
 
 connect.then((db) => {
@@ -32,10 +37,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+app.use(passport.initialize());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/articles', articlesRouter);
 
 // catch 404 and forward to error handler

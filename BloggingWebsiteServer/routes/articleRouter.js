@@ -3,14 +3,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('./cors');
 const Articles = require('../models/articles');
+var authenticate = require('../authenticate');
 
 const articleRouter = express.Router();
 
 articleRouter.use(bodyParser.json());
 
 articleRouter.route('/')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-.get(cors.cors, (req,res,next) => {
+.options(cors.corsWithOptions,authenticate.verifyUser, (req, res) => { res.sendStatus(200); })
+.get(cors.cors,(req,res,next) => {
     Articles.find({})
     .then((articles) => {
         res.statusCode = 200;
@@ -19,22 +20,22 @@ articleRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post(cors.corsWithOptions, (req, res, next) => {
+.post(cors.corsWithOptions,authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /articles');
 })
-.put(cors.corsWithOptions, (req, res, next) => {
+.put(cors.corsWithOptions,authenticate.verifyUser,(req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /articles');
 })
-.delete(cors.corsWithOptions,(req, res, next) => {
+.delete(cors.corsWithOptions,authenticate.verifyUser,(req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported on /articles');   
 });
 
 
 articleRouter.route('/:articleId')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.options(cors.corsWithOptions,authenticate.verifyUser, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req,res,next) => {
     Articles.findById(req.params.articleId)
     .then((article) => {
@@ -44,15 +45,15 @@ articleRouter.route('/:articleId')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post(cors.corsWithOptions, (req, res, next) => {
+.post(cors.corsWithOptions,authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /articles/:articleId');
 })
-.put(cors.corsWithOptions, (req, res, next) => {
+.put(cors.corsWithOptions,authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /articles/:articleId');
 })
-.delete(cors.corsWithOptions,(req, res, next) => {
+.delete(cors.corsWithOptions,authenticate.verifyUser,(req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported on /articles/:articleId');   
 });

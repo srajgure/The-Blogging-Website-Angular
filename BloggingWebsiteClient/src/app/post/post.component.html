@@ -1,0 +1,29 @@
+<app-header></app-header>
+    <h3>Post Your Article</h3>
+
+
+<p>{{ article | json }}</p>
+
+<form novalidate #PostForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    <p>
+        <mat-form-field>
+          <input matInput placeholder="Title" type="text" [(ngModel)]="article.title" name="title"  #title="ngModel" required>
+          <mat-error *ngIf="title.errors?.required">Title is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Description" type="text" [(ngModel)]="article.description" name="description" #description="ngModel" required>
+          <mat-error *ngIf="description.errors?.required">Description is required</mat-error>
+        </mat-form-field>
+    
+    </p>
+
+
+
+  
+    <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="PostForm.form.invalid">Post</button>
+  
+  </form>
+<app-footer></app-footer>
