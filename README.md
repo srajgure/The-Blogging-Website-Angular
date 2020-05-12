@@ -1,2 +1,36 @@
 # The Blogging Website
-- This repository contains a blogging website developed using angular9 front-end and Express, MongDB backend
+
+## Introduction
+
+**The Blogging Website** is a simple blogging website developed using Angular front-end and Express Server along with MongoDB for database at backend. This project gives a good understanding of working of full-fledged modern web-application.
+
+## Features
+
+#### Front-end (Angular)
+* Angular Components
+* Angular Services
+* Angular Interceptors
+* Angular App-routing
+* Angular Template Driven Forms
+* Angular Http Client
+
+####  Back-end (Express)
+* Routing
+* User Authentication Using Passport (passport-jwt)
+* MongoDB with mongoose.
+
+
+## How To Run
+
+1. Setup MongoDB database (Instructions and json file is in BloggingWebsiteDB folder)
+2. Go to `BloggingWebsiteServer` directory and run following commands
+
+            `npm install
+             npm start`
+3. Go to `BloggingWebsiteClient` directory and run following commands
+
+            `npm install
+             ng serve`
+
+
+
