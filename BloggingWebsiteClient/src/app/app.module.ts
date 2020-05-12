@@ -24,6 +24,15 @@ import { ArticledetailsComponent } from './articledetails/articledetails.compone
 import { LoginComponent } from './login/login.component';
 import { PostComponent } from './post/post.component';
 
+import { ArticleService } from './services/article.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
+import { AuthGuardService } from './services/auth-guard.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +60,22 @@ import { PostComponent } from './post/post.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ArticleService,
+    ProcessHTTPMsgService,
+    AuthService,
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
+  ],
   entryComponents: [
     LoginComponent
   ],

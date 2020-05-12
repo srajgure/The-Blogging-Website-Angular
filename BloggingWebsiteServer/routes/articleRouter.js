@@ -21,8 +21,14 @@ articleRouter.route('/')
     .catch((err) => next(err));
 })
 .post(cors.corsWithOptions,authenticate.verifyUser, (req, res, next) => {
-    res.statusCode = 403;
-    res.end('POST operation not supported on /articles');
+    Articles.create(req.body)
+    .then((article) => {
+        console.log('Article Addes ', article);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(article);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 })
 .put(cors.corsWithOptions,authenticate.verifyUser,(req, res, next) => {
     res.statusCode = 403;
