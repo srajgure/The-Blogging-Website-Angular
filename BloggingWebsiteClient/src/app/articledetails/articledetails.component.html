@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container"
+<div class="main-div"
     fxLayout="row"
     fxLayout.sm="column"
     fxLayout.xs="column"
@@ -8,7 +8,7 @@
     fxLayoutGap.xs="0">
 
     <div fxFlex *ngIf="article">
-      <mat-card>
+      <mat-card >
         <mat-card-header>
           <mat-card-title>
             <h3 *ngIf="article">{{article.title | uppercase}}</h3>
@@ -21,11 +21,9 @@
 
       <mat-card-actions>
           <button mat-button (click)="goBack()">BACK</button>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
         </mat-card-actions>
       </mat-card>
-    </div>
+  </div>
   
 </div>
 <app-footer></app-footer>
