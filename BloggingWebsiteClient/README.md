@@ -22,7 +22,7 @@ This component is used for displaying simple home page.
 #### 6. HeaderComponent
 This component is used for header of the website.
 
-#### 7. Footer Component
+#### 7. FooterComponent
 This component is used for footer of the website.
 
 ## Services
@@ -41,5 +41,5 @@ This service is used for handling http errors.
 
 ## Interceptors
 
-#### 1. AuthInterceptors
+#### 1. AuthInterceptor
 This interceptor is to intercept every http request and add authentication header in the request.
