@@ -25,12 +25,12 @@
 1. Setup MongoDB database (Instructions and json file is in BloggingWebsiteDB folder)
 2. Go to `BloggingWebsiteServer` directory and run following commands
 
-            `npm install
-             npm start`
+            npm install
+            npm start
 3. Go to `BloggingWebsiteClient` directory and run following commands
 
-            `npm install
-             ng serve`
+            npm install
+            ng serve
 
 
 
