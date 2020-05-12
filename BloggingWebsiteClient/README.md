@@ -2,26 +2,44 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
-## Development server
+## Components
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### 1. ArticlesComponent
+This component is used to display list of articles at articles page.
 
-## Code scaffolding
+#### 2. LoginComponent
+This component is used for displaying login dialog for authentication.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### 3. PostComponent
+This component is used for posting article after authentication as it is guarded by auth-guard service.
 
-## Build
+#### 4. ArticledetailsComponent
+This component is used for displaying article details after clicking on title at article page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### 5. HomeComponent
+This component is used for displaying simple home page.
 
-## Running unit tests
+#### 6. HeaderComponent
+This component is used for header of the website.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### 7. Footer Component
+This component is used for footer of the website.
 
-## Running end-to-end tests
+## Services
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### 1. ArticleService
+Provides utility functions for article and articledetails component.
 
-## Further help
+#### 2.AuthService
+This service is used for authentication.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### 3.AuthguardService
+This service is used for guarding Post page.
+
+#### 4. Procces-httpmsgService
+This service is used for handling http errors.
+
+## Interceptors
+
+#### 1. AuthInterceptors
+This interceptor is to intercept every http request and add authentication header in the request.
